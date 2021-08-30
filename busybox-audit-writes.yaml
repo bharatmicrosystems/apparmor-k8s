@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: busybox-audit-writes
+  name: busybox-audit-writes
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/busybox: localhost/k8s-apparmor-audit-writes
+spec:
+  containers:
+  - command:
+    - sleep
+    - 1d
+    image: busybox
+    name: busybox
+    resources: {}
+  restartPolicy: Never
